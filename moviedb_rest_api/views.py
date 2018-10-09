@@ -51,11 +51,6 @@ class MoviesView(APIView):
             host=settings.OMDB_API_URL, apikey=settings.OMDB_API_KEY, movie_title=movie_title
         )
 
-    def get_movie_data_from_omdb(self, movie_title):
-        import pdb; pdb.set_trace()
-        response = requests.get(self.omdb_url(movie_title))
-        return response.json()
-
     def get_movie_data(self, movie_title):
         movie = Movie.objects.get_or_none(title__iexact=movie_title)
         if movie:
