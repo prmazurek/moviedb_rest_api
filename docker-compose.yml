@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    container_name: moviedb_rest_api_db
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - OMDB_SECRET=${OMDB_SECRET}
+    command: python3 manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    container_name: moviedb_rest_api_web
+    depends_on:
+      - db

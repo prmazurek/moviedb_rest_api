@@ -1,0 +1,25 @@
+<h2>Supported methods</h2>
+<ul>
+	{% for method_name, values in description_data.items %}
+		<li>
+			<h5>{{ method_name }}:</h5>
+			<ul>
+				{% for value_name, value in values.items %}
+					<li>
+						{% if value.keys %}
+							<div>{{ value_name}}:</div>
+							<ol>
+								{% for attribute, expected_value in value.items %}
+									<li>{{ attribute }}: {{ expected_value }}</li>
+								{% endfor %}
+							</ol>
+						{% else %}
+							<div>{{ value_name }}: {{ value }}</div>
+						{% endif %}
+					</li>
+				{% endfor %}
+			</ul>
+		</li>
+	{% endfor %}
+</ul>
+<br>

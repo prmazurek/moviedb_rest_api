@@ -1,0 +1,10 @@
+{% extends "rest_framework/base.html" %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+	<ul class="breadcrumb">
+		<li><a href="{% url 'movies' %}">Movies</a></li>
+		<li><a href="{% url 'comments' %}">Comments</a></li>
+		<li><a href="{% url 'top' %}">Top</a></li>
+	</ul>
+ {% endblock %}
