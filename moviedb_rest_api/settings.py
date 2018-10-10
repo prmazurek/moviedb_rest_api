@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -127,3 +128,10 @@ STATIC_URL = '/static/'
 
 OMDB_API_KEY = env('OMDB_SECRET', 'change me!')
 OMDB_API_URL = 'http://www.omdbapi.com/'
+
+ENVIRONMENT = env('ENVIRONMENT', 'development')
+
+if ENVIRONMENT == 'heroku':
+    # Configure Django App for Heroku.
+    import django_heroku
+    django_heroku.settings(locals())
