@@ -19,6 +19,7 @@ class CommentSerializer(serializers.ModelSerializer):
         model = Comment
         fields = ('movie_id', 'comment_id', 'body', 'created_at')
 
+
 class TopMoviesSerializer(serializers.ModelSerializer):
     comments_count = None
     movie_rank = 0
