@@ -11,6 +11,8 @@ services:
     environment:
       - OMDB_SECRET=${OMDB_SECRET}
     command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./moviedb_rest_api:/app/moviedb_rest_api
     ports:
       - "8000:8000"
     container_name: moviedb_rest_api_web
